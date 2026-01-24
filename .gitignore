@@ -1,0 +1,21 @@
+# .gitignore
+
+# Environment / secrets
+.env
+.env.local
+.env.*
+!.env.example          # ← this is the exception we want
+
+# Python / virtual env
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# Deployment / temp files
+*.log
+.DS_Store
