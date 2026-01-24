@@ -1,7 +1,8 @@
 import streamlit as st
 import requests
 import json
-import confetti  # pip install streamlit-confetti for animation
+from streamlit_confetti import confetti
+  # pip install streamlit-confetti for animation
 
 st.set_page_config(page_title="Marksheet Extractor", layout="wide")
 st.markdown("<h1 style='text-align: center; color: #FF6347;'>AI Marksheet Extractor 🚀</h1>", unsafe_allow_html=True)
