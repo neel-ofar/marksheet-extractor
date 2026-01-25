@@ -6,8 +6,8 @@ from dotenv import load_dotenv
 import os
 from groq import Groq
 
-from .utils import image_to_base64, get_llm_result
-from .models import Extraction
+from utils import image_to_base64, get_llm_result
+from models import Extraction
 
 load_dotenv()
 
