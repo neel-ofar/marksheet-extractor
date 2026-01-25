@@ -1,4 +1,4 @@
-\# Marksheet Extractor API
+\Marksheet Extractor API
 
 
 
@@ -10,7 +10,7 @@ A production‑ready AI system that extracts structured data from marksheets (im
 
 
 
-\## 🔗 Links
+\ 🔗 Links
 
 
 
@@ -24,23 +24,23 @@ A production‑ready AI system that extracts structured data from marksheets (im
 
 
 
-\## ✨ What this project does
+\ ✨ What this project does
 
 
 
-\* Accepts \*\*images and PDFs\*\* of marksheets
+\ Accepts \*\*images and PDFs\*\* of marksheets
 
-\* Extracts key academic fields into \*\*strict JSON\*\*
+\ Extracts key academic fields into \*\*strict JSON\*\*
 
-\* Provides \*\*confidence scores per field\*\*
+\ Provides \*\*confidence scores per field\*\*
 
-\* Supports \*\*concurrent API requests\*\*
+\ Supports \*\*concurrent API requests\*\*
 
-\* Includes \*\*batch processing\*\* for multiple files
+\ Includes \*\*batch processing\*\* for multiple files
 
-\* Returns \*\*bounding boxes\*\* for extracted fields
+\ Returns \*\*bounding boxes\*\* for extracted fields
 
-\* Exposes a \*\*frontend demo\*\* to upload and view results
+\ Exposes a \*\*frontend demo\*\* to upload and view results
 
 
 
@@ -48,7 +48,7 @@ A production‑ready AI system that extracts structured data from marksheets (im
 
 
 
-\## 🧠 Extraction Overview
+\ 🧠 Extraction Overview
 
 
 
@@ -60,53 +60,13 @@ The model is instructed to:
 
 
 
-\* Read all visible text (including faint or partially visible text)
+\ Read all visible text (including faint or partially visible text)
 
-\* Never return empty output unless the document is truly blank
+\ Never return empty output unless the document is truly blank
 
-\* Output only valid JSON in a fixed schema
+\ Output only valid JSON in a fixed schema
 
-\* Assign confidence scores to each extracted field
-
-
-
----
-
-
-
-\## 📦 API Features
-
-
-
-\### Core Endpoints
-
-
-
-\* \*\*POST /extract\*\* – Extract data from a single image or PDF
-
-\* \*\*POST /extract/batch\*\* – Batch extraction for multiple files
-
-
-
-\### Input Support
-
-
-
-\* JPEG, PNG images
-
-\* Multi‑page PDFs (each page processed safely)
-
-
-
-\### Output
-
-
-
-\* Structured JSON response
-
-\* Per‑field confidence scores
-
-\* Bounding box coordinates for extracted fields
+\ Assign confidence scores to each extracted field
 
 
 
@@ -114,15 +74,39 @@ The model is instructed to:
 
 
 
-\## 🔐 API Authentication
+\📦 API Features
 
 
 
-\* API key–based authentication using request headers
+\ Core Endpoints
 
-\* Secrets and keys are \*\*never stored in the repository\*\*
 
-\* Environment variables are used for all credentials
+
+\ \*\*POST /extract\*\* – Extract data from a single image or PDF
+
+\ \*\*POST /extract/batch\*\* – Batch extraction for multiple files
+
+
+
+\ Input Support
+
+
+
+\ JPEG, PNG images
+
+\ Multi‑page PDFs (each page processed safely)
+
+
+
+\ Output
+
+
+
+\ Structured JSON response
+
+\ Per‑field confidence scores
+
+\ Bounding box coordinates for extracted fields
 
 
 
@@ -130,7 +114,23 @@ The model is instructed to:
 
 
 
-\## 🧪 Error Handling
+\ 🔐 API Authentication
+
+
+
+\ API key–based authentication using request headers
+
+\ Secrets and keys are \*\*never stored in the repository\*\*
+
+\ Environment variables are used for all credentials
+
+
+
+---
+
+
+
+\ 🧪 Error Handling
 
 
 
@@ -138,15 +138,15 @@ The API provides meaningful errors for:
 
 
 
-\* Invalid or unsupported file formats
+\ Invalid or unsupported file formats
 
-\* Oversized files
+\ Oversized files
 
-\* Corrupted PDFs or images
+\ Corrupted PDFs or images
 
-\* LLM failures or malformed responses
+\ LLM failures or malformed responses
 
-\* Authentication failures
+\ Authentication failures
 
 
 
@@ -158,7 +158,7 @@ All errors return consistent JSON responses with descriptive messages.
 
 
 
-\## ⚙️ Tech Stack
+\ ⚙️ Tech Stack
 
 
 
@@ -204,7 +204,7 @@ All errors return consistent JSON responses with descriptive messages.
 
 
 
-\## 🧩 Design Choices
+\ 🧩 Design Choices
 
 
 
@@ -224,7 +224,7 @@ All errors return consistent JSON responses with descriptive messages.
 
 
 
-\## 🧪 Unit Testing
+\ 🧪 Unit Testing
 
 
 
@@ -248,17 +248,17 @@ All errors return consistent JSON responses with descriptive messages.
 
 
 
-\## 🔒 Security \& Best Practices
+\ 🔒 Security \& Best Practices
 
 
 
-\* No secrets committed to the repository
+\ No secrets committed to the repository
 
-\* Environment‑based configuration
+\ Environment‑based configuration
 
-\* Safe file handling and size limits
+\ Safe file handling and size limits
 
-\* Clean separation of concerns
+\ Clean separation of concerns
 
 
 
@@ -266,7 +266,7 @@ All errors return consistent JSON responses with descriptive messages.
 
 
 
-\## 📊 Evaluation Alignment
+\ 📊 Evaluation Alignment
 
 
 
@@ -288,7 +288,7 @@ This project is designed to score strongly across all evaluation criteria:
 
 
 
-\## 🚀 How to Run (High Level)
+\🚀 How to Run (High Level)
 
 
 
@@ -306,15 +306,15 @@ This project is designed to score strongly across all evaluation criteria:
 
 
 
-\## 📌 Notes
+\📌 Notes
 
 
 
-\* Credentials must be provided via environment variables
+\ Credentials must be provided via environment variables
 
-\* Supports concurrent requests
+\ Supports concurrent requests
 
-\* Designed for real‑world academic document variability
+\ Designed for real‑world academic document variability
 
 
 
