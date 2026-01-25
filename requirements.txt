@@ -8,3 +8,4 @@ python-dotenv
 pytest
 streamlit
 streamlit-confetti
+python-multipart
