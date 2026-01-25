@@ -13,7 +13,7 @@ if file and st.button("Extract"):
     with st.spinner("Working..."):
         try:
             resp = requests.post(
-                "http://localhost:8000/extract",
+                "https://marksheet-extractor-1-1gn2.onrender.com",
                 files={"file": (file.name, file.getvalue(), file.type)},  # ← better: explicit filename & content_type
                 timeout=90                                               # ← increased to 90 s (vision LLM can be slow)
             )
