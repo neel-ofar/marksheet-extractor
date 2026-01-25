@@ -1,4 +1,4 @@
-\# Marksheet Extractor API
+Marksheet Extractor API
 
 
 
@@ -10,13 +10,36 @@ A production‑ready AI system that extracts structured data from marksheets (im
 
 
 
-\## 🔗 Links
+🔗 Links
 
 
 
-[\* \*\*GitHub Repository:\*\*](https://github.com/neel-ofar/marksheet-extractor.git)
+GitHub Repository:(https://github.com/neel-ofar/marksheet-extractor.git)
 
-[\* \*\*Deployed API (Render)](https://marksheet-extractor-tjpk.onrender.com)
+Deployed API (Render)](https://marksheet-extractor-tjpk.onrender.com)
+
+
+
+---
+
+
+✨ What this project does
+
+
+
+Accepts images and PDFs of marksheets
+
+ Extracts key academic fields into strict JSON
+
+ Provides confidence scores per field
+
+ Supports concurrent API requests
+
+ Includes batch processing for multiple files
+
+ Returns bounding boxes for extracted fields
+
+Exposes a frontend demo to upload and view results
 
 
 
@@ -24,31 +47,7 @@ A production‑ready AI system that extracts structured data from marksheets (im
 
 
 
-\## ✨ What this project does
-
-
-
-\* Accepts \*\*images and PDFs\*\* of marksheets
-
-\* Extracts key academic fields into \*\*strict JSON\*\*
-
-\* Provides \*\*confidence scores per field\*\*
-
-\* Supports \*\*concurrent API requests\*\*
-
-\* Includes \*\*batch processing\*\* for multiple files
-
-\* Returns \*\*bounding boxes\*\* for extracted fields
-
-\* Exposes a \*\*frontend demo\*\* to upload and view results
-
-
-
----
-
-
-
-\## 🧠 Extraction Overview
+🧠 Extraction Overview
 
 
 
@@ -60,13 +59,52 @@ The model is instructed to:
 
 
 
-\* Read all visible text (including faint or partially visible text)
+Read all visible text (including faint or partially visible text)
 
-\* Never return empty output unless the document is truly blank
+ Never return empty output unless the document is truly blank
 
-\* Output only valid JSON in a fixed schema
+Output only valid JSON in a fixed schema
 
-\* Assign confidence scores to each extracted field
+Assign confidence scores to each extracted field
+
+
+
+---
+
+
+📦 API Features
+
+
+
+Core Endpoints
+
+
+
+POST /extract – Extract data from a single image or PDF
+
+POST /extract/batch – Batch extraction for multiple files
+
+
+
+Input Support
+
+
+
+JPEG, PNG images
+
+Multi‑page PDFs (each page processed safely)
+
+
+
+ Output
+
+
+
+Structured JSON response
+
+Per‑field confidence scores
+
+Bounding box coordinates for extracted fields
 
 
 
@@ -74,39 +112,15 @@ The model is instructed to:
 
 
 
-\## 📦 API Features
+🔐 API Authentication
 
 
 
-\### Core Endpoints
+ API key–based authentication using request headers
 
+Secrets and keys are never stored in the repository
 
-
-\* \*\*POST /extract\*\* – Extract data from a single image or PDF
-
-\* \*\*POST /extract/batch\*\* – Batch extraction for multiple files
-
-
-
-\### Input Support
-
-
-
-\* JPEG, PNG images
-
-\* Multi‑page PDFs (each page processed safely)
-
-
-
-\### Output
-
-
-
-\* Structured JSON response
-
-\* Per‑field confidence scores
-
-\* Bounding box coordinates for extracted fields
+Environment variables are used for all credentials
 
 
 
@@ -114,23 +128,7 @@ The model is instructed to:
 
 
 
-\## 🔐 API Authentication
-
-
-
-\* API key–based authentication using request headers
-
-\* Secrets and keys are \*\*never stored in the repository\*\*
-
-\* Environment variables are used for all credentials
-
-
-
----
-
-
-
-\## 🧪 Error Handling
+🧪 Error Handling
 
 
 
@@ -138,15 +136,15 @@ The API provides meaningful errors for:
 
 
 
-\* Invalid or unsupported file formats
+ Invalid or unsupported file formats
 
-\* Oversized files
+Oversized files
 
-\* Corrupted PDFs or images
+Corrupted PDFs or images
 
-\* LLM failures or malformed responses
+ LLM failures or malformed responses
 
-\* Authentication failures
+Authentication failures
 
 
 
@@ -158,65 +156,45 @@ All errors return consistent JSON responses with descriptive messages.
 
 
 
-\## ⚙️ Tech Stack
+⚙️ Tech Stack
 
 
 
-\*\*Backend\*\*
+Backend:
 
 
 
-\* Python
+ Python
 
-\* FastAPI
+FastAPI
 
-\* Groq API
+Groq API
 
-\* Poppler (PDF processing)
-
-
-
-\*\*LLM\*\*
+ Poppler (PDF processing)
 
 
 
-\* LLaMA (Groq hosted multimodal model)
+LLM
 
 
 
-\*\*Frontend\*\*
+LLaMA (Groq hosted multimodal model)
 
 
 
-\* Streamlit (upload + JSON viewer)
+Frontend
 
 
 
-\*\*Deployment\*\*
+Streamlit (upload + JSON viewer)
 
 
 
-\* Render
+Deployment
 
 
 
----
-
-
-
-\## 🧩 Design Choices
-
-
-
-\* \*\*FastAPI\*\* for async performance and concurrency
-
-\* \*\*Strict JSON schema\*\* to avoid hallucinated formats
-
-\* \*\*Image resizing \& compression\*\* before LLM calls for stability
-
-\* \*\*Separation of frontend and backend\*\* for scalability
-
-\* \*\*Stateless API design\*\* for easy horizontal scaling
+Render
 
 
 
@@ -224,23 +202,19 @@ All errors return consistent JSON responses with descriptive messages.
 
 
 
-\## 🧪 Unit Testing
+🧩 Design Choices
 
 
 
-\* Unit tests included using sample marksheets
+FastAPI for async performance and concurrency
 
-\* Covers:
+Strict JSON schema to avoid hallucinated formats
 
+Image resizing & compression before LLM calls for stability
 
+Separation of frontend and backend for scalability
 
-&nbsp; \* Valid image extraction
-
-&nbsp; \* PDF parsing
-
-&nbsp; \* Error cases
-
-&nbsp; \* JSON schema validation
+Stateless API design for easy horizontal scaling
 
 
 
@@ -248,17 +222,23 @@ All errors return consistent JSON responses with descriptive messages.
 
 
 
-\## 🔒 Security \& Best Practices
+🧪 Unit Testing
 
 
 
-\* No secrets committed to the repository
+ Unit tests included using sample marksheets
 
-\* Environment‑based configuration
+Covers:
 
-\* Safe file handling and size limits
 
-\* Clean separation of concerns
+
+&nbsp;  Valid image extraction
+
+&nbsp;  PDF parsing
+
+&nbsp;  Error cases
+
+&nbsp; JSON schema validation
 
 
 
@@ -266,7 +246,24 @@ All errors return consistent JSON responses with descriptive messages.
 
 
 
-\## 📊 Evaluation Alignment
+🔒 Security \& Best Practices
+
+
+
+ No secrets committed to the repository
+
+ Environment‑based configuration
+
+ Safe file handling and size limits
+
+ Clean separation of concerns
+
+
+
+---
+
+
+ 📊 Evaluation Alignment
 
 
 
@@ -274,31 +271,13 @@ This project is designed to score strongly across all evaluation criteria:
 
 
 
-\* \*\*Prompt \& Extraction Quality:\*\* Carefully designed prompts with confidence calibration
+Prompt \& Extraction Quality: Carefully designed prompts with confidence calibration
 
-\* \*\*API Reliability:\*\* Async FastAPI, proper error handling, batch support
+API Reliability: Async FastAPI, proper error handling, batch support
 
-\* \*\*Documentation:\*\* Clear README and approach note
+Documentation: Clear README and approach note
 
-\* \*\*Innovation:\*\* Confidence scoring, bounding boxes, batch extraction
-
-
-
----
-
-
-
-\## 🚀 How to Run (High Level)
-
-
-
-1\. Set environment variables
-
-2\. Start the FastAPI backend
-
-3\. Run the Streamlit frontend
-
-4\. Upload a marksheet and view extracted JSON
+Innovation: Confidence scoring, bounding boxes, batch extraction
 
 
 
@@ -306,15 +285,33 @@ This project is designed to score strongly across all evaluation criteria:
 
 
 
-\## 📌 Notes
+🚀 How to Run (High Level)
 
 
 
-\* Credentials must be provided via environment variables
+1. Set environment variables
 
-\* Supports concurrent requests
+2. Start the FastAPI backend
 
-\* Designed for real‑world academic document variability
+3. Run the Streamlit frontend
+
+4. Upload a marksheet and view extracted JSON
+
+
+
+---
+
+
+
+📌 Notes
+
+
+
+Credentials must be provided via environment variables
+
+ Supports concurrent requests
+
+ Designed for real‑world academic document variability
 
 
 
