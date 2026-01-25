@@ -8,8 +8,11 @@ file = st.file_uploader("Choose marksheet", type=["jpg", "png", "pdf"])
 
 if file:
     st.image(file, caption="Uploaded file preview")
+    
+if 'loading' not in st.session_state:
+    st.session_state.loading = False
 
-if file and st.button("Extract",disabled=st.session_state.get("loading", False)):
+if file and st.button("Extract",disabled=st.session_state.loading):
     st.session_state.loading = True
     with st.spinner("Working..."):
         try:
