@@ -3,7 +3,7 @@ import io
 import json
 from PIL import Image, ImageOps
 from groq import Groq
-from .models import Extraction
+from models import Extraction
 
 
 def resize_for_groq(image: Image.Image, max_pixels: int = 25_000_000) -> Image.Image:
