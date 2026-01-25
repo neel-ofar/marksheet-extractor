@@ -17,7 +17,7 @@ if file and st.button("Extract",disabled=st.session_state.loading):
     with st.spinner("Working..."):
         try:
             resp = requests.post(
-                "https://marksheet-extractor-1-1gn2.onrender.com",
+                "https://marksheet-extractor-1-1gn2.onrender.com/extract",
                 files={"file": (file.name, file.getvalue(), file.type)},  # ← better: explicit filename & content_type
                 timeout=180,
                 headers={"Accept": "application/json"}# ← increased to 90 s (vision LLM can be slow)
