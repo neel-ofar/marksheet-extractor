@@ -13,6 +13,14 @@ load_dotenv()
 
 app = FastAPI(title="Simple Marksheet Extractor")
 
+@app.get("/")
+def root():
+    return {
+        "status": "ok",
+        "message": "Marksheet Extractor API is running",
+        "docs": "/docs"
+    }
+
 client = Groq(api_key=os.getenv("GROQ_API_KEY") or "")
 
 if not client.api_key:
