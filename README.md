@@ -5,7 +5,7 @@ A production‑ready AI system that extracts structured data from marksheets (im
 🔗 Links
 
 GitHub Repository: https://github.com/neel-ofar/marksheet-extractor.git
-Deployed API (Render): https://marksheet-extractor-tjpk.onrender.com
+Deployed API (Render): https://marksheet-extractor-ciik.onrender.com
 
 ✨ What this project does
 
@@ -112,7 +112,7 @@ FastAPI for async performance and concurrency
 
 Strict JSON schema to avoid hallucinated formats
 
-Image resizing & compression before LLM calls for stability
+Image resizing \& compression before LLM calls for stability
 
 Separation of frontend and backend for scalability
 
@@ -132,7 +132,7 @@ Error cases
 
 JSON schema validation
 
-🔒 Security & Best Practices
+🔒 Security \& Best Practices
 
 No secrets committed to the repository
 
@@ -146,7 +146,7 @@ Clean separation of concerns
 
 This project is designed to score strongly across all evaluation criteria:
 
-Prompt & Extraction Quality: Carefully designed prompts with confidence calibration
+Prompt \& Extraction Quality: Carefully designed prompts with confidence calibration
 
 API Reliability: Async FastAPI, proper error handling, batch support
 
@@ -171,3 +171,4 @@ Credentials must be provided via environment variables
 Supports concurrent requests
 
 Designed for real‑world academic document variability
+

@@ -9,13 +9,15 @@ file = st.file_uploader("Choose marksheet", type=["jpg", "png", "pdf"])
 if file:
     st.image(file, caption="Uploaded file preview")
 
-if file and st.button("Extract"):
+if file and st.button("Extract",disabled=st.session_state.get("loading", False)):
+    st.session_state.loading = True):
     with st.spinner("Working..."):
         try:
             resp = requests.post(
                 "https://marksheet-extractor-1-1gn2.onrender.com",
                 files={"file": (file.name, file.getvalue(), file.type)},  # ← better: explicit filename & content_type
-                timeout=90                                               # ← increased to 90 s (vision LLM can be slow)
+                timeout=120,
+                headers={"Accept": "application/json"}# ← increased to 90 s (vision LLM can be slow)
             )
             resp.raise_for_status()
 
@@ -25,9 +27,11 @@ if file and st.button("Extract"):
         except requests.exceptions.ConnectionError:
             st.error("Cannot connect to backend.\nMake sure you started it with:\n`uvicorn app.main:app --reload`")
 
-        except requests.exceptions.HTTPError:
+        except requests.exceptions.HTTPError as e:
             # Here resp definitely exists
-            st.error(f"Backend returned status {resp.status_code}")
+            st.error(f"Backend returned status: {resp.status_code}")
+            if resp.status_code == 405:
+                st.warning("Method Not Allowed — Yeh normally GET request se aata hai. Sirf 'Extract' button ek baar click karo, double-click mat karo.")
             try:
                 error_detail = resp.json()
                 st.json(error_detail)
