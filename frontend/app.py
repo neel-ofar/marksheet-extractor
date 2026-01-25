@@ -10,7 +10,7 @@ if file:
     st.image(file, caption="Uploaded file preview")
 
 if file and st.button("Extract",disabled=st.session_state.get("loading", False)):
-    st.session_state.loading = True):
+    st.session_state.loading = True
     with st.spinner("Working..."):
         try:
             resp = requests.post(
@@ -43,3 +43,5 @@ if file and st.button("Extract",disabled=st.session_state.get("loading", False))
 
         except Exception as e:
             st.error(f"Unexpected error: {str(e)}")
+        finally:
+            st.session_state.loading = False
