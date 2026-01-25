@@ -39,6 +39,9 @@ async def extract(file: UploadFile = File(...)):
 
     # Process only first page for simplicity
     base64_img = image_to_base64(images[0])
+    print(f"Number of pages detected: {len(images)}")
+    print(f"Base64 length: {len(base64_img)} characters")  # should be several thousand for a real image
+    print(f"First 100 chars of base64: {base64_img[:100]}...")
 
     result_dict = get_llm_result(client, base64_img)
 

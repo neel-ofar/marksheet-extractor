@@ -6,6 +6,9 @@ st.caption("Make sure backend is running → uvicorn app.main:app")
 
 file = st.file_uploader("Choose marksheet", type=["jpg", "png", "pdf"])
 
+if file:
+    st.image(file, caption="Uploaded file preview")
+
 if file and st.button("Extract"):
     with st.spinner("Working..."):
         try:

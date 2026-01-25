@@ -1,13 +1,12 @@
 import base64
 import io
 import json
-from PIL import Image
+from PIL import Image, ImageOps
 from groq import Groq
 from .models import Extraction
-from PIL import Image, ImageOps
+
 
 def resize_for_groq(image: Image.Image, max_pixels: int = 25_000_000) -> Image.Image:
-    """Resize if over safe pixel limit (Groq ~33M, we use conservative 25M)"""
     pixels = image.width * image.height
     if pixels > max_pixels:
         scale = (max_pixels / pixels) ** 0.5
@@ -17,9 +16,9 @@ def resize_for_groq(image: Image.Image, max_pixels: int = 25_000_000) -> Image.I
 
 
 def image_to_base64(image: Image.Image) -> str:
-    image = resize_for_groq(image)                  # ← Add this
+    image = resize_for_groq(image)
     buffered = io.BytesIO()
-    image.convert("RGB").save(buffered, format="JPEG", quality=82)  # Compress slightly
+    image.convert("RGB").save(buffered, format="JPEG", quality=82)
     return base64.b64encode(buffered.getvalue()).decode("utf-8")
 
 
@@ -41,16 +40,22 @@ Example:
   "result": {"value": "First Division", "confidence": 0.9}
 }
 """
-
     resp = client.chat.completions.create(
         model="meta-llama/llama-4-maverick-17b-128e-instruct",
-        messages=[{
-            "role": "user",
-            "content": [
-                {"type": "text", "text": prompt},
-                {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{base64_img}"}}
-            ]
-        }],
+        messages=[
+            {
+                "role": "user",
+                "content": [
+                    {"type": "text", "text": prompt},
+                    {
+                        "type": "image_url",
+                        "image_url": {
+                            "url": f"data:image/jpeg;base64,{base64_img}"
+                        },
+                    },
+                ],
+            }
+        ],
         temperature=0.3,
         max_tokens=800,
     )
@@ -59,5 +64,8 @@ Example:
 
     try:
         return json.loads(text)
-    except:
-        return {"error": "Invalid JSON from model", "raw": text[:300]}
+    except Exception:
+        return {
+            "error": "Invalid JSON from model",
+            "raw": text[:300],
+        }
