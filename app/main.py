@@ -26,6 +26,10 @@ client = Groq(api_key=os.getenv("GROQ_API_KEY") or "")
 if not client.api_key:
     raise RuntimeError("Missing GROQ_API_KEY in .env")
 
+@app.get("/health")
+def health():
+    return {"status": "healthy"}
+
 
 @app.post("/extract")
 async def extract(file: UploadFile = File(...)):
