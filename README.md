@@ -100,7 +100,7 @@ LLaMA (Groq hosted multimodal model)
 
 Frontend
 
-Streamlit (upload + JSON viewer)
+(upload + JSON viewer)
 
 Deployment
 
