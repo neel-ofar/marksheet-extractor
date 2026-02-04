@@ -7,3 +7,4 @@ pydantic
 python-dotenv
 pytest
 python-multipart
+PyPDF2

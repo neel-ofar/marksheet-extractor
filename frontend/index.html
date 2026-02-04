@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Marksheet AI Extractor</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1><i class="fas fa-file-alt"></i> Marksheet AI</h1>
+    <p class="subtitle">Upload your marksheet → Get instant structured data</p>
+
+    <div class="upload-area" id="drop-zone">
+      <input type="file" id="file-input" accept="image/*,.pdf" hidden />
+      <i class="fas fa-cloud-upload-alt upload-icon"></i>
+      <p>Drag & drop or <span class="browse">browse</span> your marksheet (JPG, PNG, PDF)</p>
+      <p class="file-info" id="file-info"></p>
+    </div>
+
+    <div class="preview-container" id="preview-container">
+      <img id="preview-img" alt="Preview" style="display:none;" />
+      <iframe id="pdf-preview" style="display:none; width:100%; height:400px;"></iframe>
+    </div>
+
+    <button id="extract-btn" class="extract-btn" disabled>
+      <i class="fas fa-magic"></i> Extract Information
+    </button>
+
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <p>Analyzing marksheet... (may take 10–60 seconds)</p>
+    </div>
+
+    <div id="result" class="result hidden">
+      <h2>Extracted Information</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Name</h3>
+          <p id="name-value">—</p>
+        </div>
+        <div class="card">
+          <h3>Roll No</h3>
+          <p id="roll-value">—</p>
+        </div>
+        <div class="card">
+          <h3>Result</h3>
+          <p id="result-value">—</p>
+        </div>
+      </div>
+
+      <div class="subjects-section">
+        <h3>Subjects</h3>
+        <table id="subjects-table">
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Obtained</th>
+              <th>Max</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <details class="json-details">
+        <summary>View Full JSON Response</summary>
+        <pre id="json-output"></pre>
+      </details>
+    </div>
+
+    <div id="error" class="error hidden"></div>
+  </div>
+
+  <footer>
+    <p>Powered by Groq Vision • Made with ❤️</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
