@@ -5,8 +5,14 @@ A production‑ready AI system that extracts structured data from marksheets (im
 ###### 🔗 Links
 
 1.GitHub Repository: https://github.com/neel-ofar/marksheet-extractor.git
+
+
 2. Deployed API backend(Render): https://marksheet-extractor-ciik.onrender.com
+
+
 3. front+backend deployed on render: 
+
+
 
 
 
