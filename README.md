@@ -1,176 +1,176 @@
-Marksheet Extractor API
+# Marksheet Extractor API
 
 A production‑ready AI system that extracts structured data from marksheets (images and PDFs) using a multimodal LLM, with confidence scoring, validation, and a simple frontend demo.
 
-🔗 Links
+###### 🔗 Links
 
-GitHub Repository: https://github.com/neel-ofar/marksheet-extractor.git
-Deployed API backend(Render): https://marksheet-extractor-1-1gn2.onrender.com/docs#/default/extract\_extract\_post
+1.GitHub Repository: https://github.com/neel-ofar/marksheet-extractor.git
+2. Deployed API backend(Render): https://marksheet-extractor-ciik.onrender.com
+3. front+backend deployed on render: 
 
-front+backend deployed on render: https://marksheet-extractor-ciik.onrender.com
 
-✨ What this project does
 
-Accepts images and PDFs of marksheets
+###### ✨ What this project does
 
-Extracts key academic fields into strict JSON
+-Accepts images and PDFs of marksheets
 
-Provides confidence scores per field
+-Extracts key academic fields into strict JSON
 
-Supports concurrent API requests
+-Provides confidence scores per field
 
-Includes batch processing for multiple files
+-Supports concurrent API requests
 
-Returns bounding boxes for extracted fields
+-Includes batch processing for multiple files
 
-Exposes a frontend demo to upload and view results
+-Returns bounding boxes for extracted fields
 
-🧠 Extraction Overview
+-Exposes a frontend demo to upload and view results
 
-The system uses a multimodal LLM to read visual content and extract structured academic information such as candidate name, roll number, subjects, marks, result, and additional metadata.
+###### 🧠 Extraction Overview
 
-The model is instructed to:
+-The system uses a multimodal LLM to read visual content and extract structured academic information such as candidate name, roll number, subjects, marks, result, and additional metadata.
 
-Read all visible text (including faint or partially visible text)
+-The model is instructed to:
 
-Never return empty output unless the document is truly blank
+-Read all visible text (including faint or partially visible text)
 
-Output only valid JSON in a fixed schema
+-Never return empty output unless the document is truly blank
 
-Assign confidence scores to each extracted field
+-Output only valid JSON in a fixed schema
 
-📦 API Features
-Core Endpoints
+-Assign confidence scores to each extracted field
 
-POST /extract – Extract data from a single image or PDF
+###### 📦 API Features,Core Endpoints
 
-POST /extract/batch – Batch extraction for multiple files
+-POST /extract – Extract data from a single image or PDF
 
-Input Support
+-POST /extract/batch – Batch extraction for multiple files
 
-JPEG, PNG images
+-Input Support
 
-Multi‑page PDFs (each page processed safely)
+-JPEG, PNG images
 
-Output
+-Multi‑page PDFs (each page processed safely)
 
-Structured JSON response
+###### Output
 
-Per‑field confidence scores
+-Structured JSON response
 
-Bounding box coordinates for extracted fields
+-Per‑field confidence scores
 
-🔐 API Authentication
+-Bounding box coordinates for extracted fields
 
-API key–based authentication using request headers
+###### 🔐 API Authentication
 
-Secrets and keys are never stored in the repository
+-API key–based authentication using request headers
 
-Environment variables are used for all credentials
+-Secrets and keys are never stored in the repository
 
-🧪 Error Handling
+-Environment variables are used for all credentials
 
-The API provides meaningful errors for:
+###### 🧪 Error Handling
 
-Invalid or unsupported file formats
+-The API provides meaningful errors for:
 
-Oversized files
+-Invalid or unsupported file formats
 
-Corrupted PDFs or images
+-Oversized files
 
-LLM failures or malformed responses
+-Corrupted PDFs or images
 
-Authentication failures
+-LLM failures or malformed responses
 
-All errors return consistent JSON responses with descriptive messages.
+-Authentication failures
 
-⚙️ Tech Stack
+-All errors return consistent JSON responses with descriptive messages.
 
-Backend
+###### ⚙️ Tech Stack
 
-Python
+1.Backend
 
-FastAPI
+&nbsp;	Python
 
-Groq API
+&nbsp;	FastAPI
 
-Poppler (PDF processing)
+&nbsp;	Groq API
 
-LLM
+&nbsp;	Poppler (PDF processing)
 
-LLaMA (Groq hosted multimodal model)
+&nbsp;	LLM
 
-Frontend
+&nbsp;	LLaMA (Groq hosted multimodal model)
 
-(upload + JSON viewer)
+2.Frontend
 
-Deployment
+&nbsp;	(upload + JSON viewer)
 
-Render
+&nbsp;	Deployment
 
-🧩 Design Choices
+&nbsp;	Render
 
-FastAPI for async performance and concurrency
+###### 🧩 Design Choices
 
-Strict JSON schema to avoid hallucinated formats
+1.FastAPI for async performance and concurrency
 
-Image resizing \& compression before LLM calls for stability
+2.Strict JSON schema to avoid hallucinated formats
 
-Separation of frontend and backend for scalability
+3.Image resizing \& compression before LLM calls for stability
 
-Stateless API design for easy horizontal scaling
+4.Separation of frontend and backend for scalability
 
-🧪 Unit Testing
+5.Stateless API design for easy horizontal scaling
 
-Unit tests included using sample marksheets
+###### 🧪 Unit Testing
 
-Covers:
+1. Unit tests included using sample marksheets
 
-Valid image extraction
+2\. Covers:
 
-PDF parsing
+&nbsp;	Valid image extraction
 
-Error cases
+&nbsp;	PDF parsing
 
-JSON schema validation
+&nbsp;	Error cases
 
-🔒 Security \& Best Practices
+&nbsp;	JSON schema validation
 
-No secrets committed to the repository
+###### 🔒 Security \& Best Practices
 
-Environment‑based configuration
+-No secrets committed to the repository
 
-Safe file handling and size limits
+-Environment‑based configuration
 
-Clean separation of concerns
+-Safe file handling and size limits
 
-📊 Evaluation Alignment
+-Clean separation of concerns
 
-This project is designed to score strongly across all evaluation criteria:
+###### 📊 Evaluation Alignment
 
-Prompt \& Extraction Quality: Carefully designed prompts with confidence calibration
+-This project is designed to score strongly across all evaluation criteria:
 
-API Reliability: Async FastAPI, proper error handling, batch support
+-Prompt \& Extraction Quality: Carefully designed prompts with confidence calibration
 
-Documentation: Clear README and approach note
+-API Reliability: Async FastAPI, proper error handling, batch support
 
-Innovation: Confidence scoring, bounding boxes, batch extraction
+-Documentation: Clear README and approach note
 
-🚀 How to Run (High Level)
+-Innovation: Confidence scoring, bounding boxes, batch extraction
 
-Set environment variables
+###### 🚀 How to Run (High Level)
 
-Start the FastAPI backend
+&nbsp;	Set environment variables
 
-Run the Streamlit frontend
+&nbsp;	Start the FastAPI backend
 
-Upload a marksheet and view extracted JSON
+&nbsp;	Run the Streamlit frontend
 
-📌 Notes
+&nbsp;	Upload a marksheet and view extracted JSON
 
-Credentials must be provided via environment variables
+###### 📌 Notes
 
-Supports concurrent requests
+&nbsp;	Credentials must be provided via environment variables
 
-Designed for real‑world academic document variability
+&nbsp;	Supports concurrent requests
+
+&nbsp;	Designed for real‑world academic document variability
 
