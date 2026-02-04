@@ -10,7 +10,7 @@ A production‑ready AI system that extracts structured data from marksheets (im
 2. Deployed API backend(Render): https://marksheet-extractor-ciik.onrender.com
 
 
-3. front+backend deployed on render: 
+3. front+backend deployed on render: https://marksheet-extractor-frontend-pr0i.onrender.com
 
 
 
