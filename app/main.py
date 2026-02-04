@@ -9,7 +9,7 @@ import os
 from groq import Groq
 
 from app.utils import image_to_base64, get_llm_result
-from .models import Extraction
+from app.models import Extraction
 
 load_dotenv()
 
