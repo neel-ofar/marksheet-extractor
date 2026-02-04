@@ -1,5 +1,5 @@
 // script.js ke sabse top pe yeh daal do
-const BACKEND_URL = "https://marksheet-extractor-ciik.onrender.com/docs";  // ← YAHAN APNA REAL RENDER BACKEND URL DAAL DO
+const BACKEND_URL = "https://marksheet-extractor-ciik.onrender.com/docs#/default/extract_extract_post";  // ← YAHAN APNA REAL RENDER BACKEND URL DAAL DO
 
 
 
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     formData.append('file', selectedFile);
 
     try {
-      const response = await fetch(`${BACKEND_URL}/extract`, {
+      const response = await fetch(`${BACKEND_URL}`, {
         method: 'POST',
         body: formData
       });
