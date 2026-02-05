@@ -1,6 +1,6 @@
 // script.js
 
-const BACKEND_URL = "https://marksheet-extractor-ciik.onrender.com/docs";  // ← YAHAN SIRF DOMAIN DAALO
+const BACKEND_URL = "https://marksheet-extractor-ciik.onrender.com";  // ← YAHAN SIRF DOMAIN DAALO
 
 document.addEventListener('DOMContentLoaded', () => {
   const dropZone = document.getElementById('drop-zone');
