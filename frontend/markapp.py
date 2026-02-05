@@ -12,9 +12,9 @@ BACKEND_URL = "https://marksheet-extractor-ciik.onrender.com/docs"
 uploaded_file = st.file_uploader("Choose JPG, PNG or PDF", type=["jpg", "png", "pdf"])
 
 if uploaded_file:
-    st.image(uploaded_file, caption="Preview", use_container_width=True)
+    st.image(uploaded_file, caption="Preview", width=Stretch)
 
-    if st.button("🚀 Extract Now", type="primary", use_container_width=True):
+    if st.button("🚀 Extract Now", type="primary", width=Content):
         with st.spinner("AI is reading your marksheet... Please wait (10–60 sec)"):
             try:
                 files = {"file": (uploaded_file.name, uploaded_file.getvalue(), uploaded_file.type)}

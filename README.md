@@ -7,10 +7,12 @@ A production‑ready AI system that extracts structured data from marksheets (im
 1.GitHub Repository: https://github.com/neel-ofar/marksheet-extractor.git
 
 
+
 2. Deployed API backend(Render): https://marksheet-extractor-ciik.onrender.com/docs#/default/extract\_extract\_post
 
 
-3. front+backend deployed on render: https://marksheet-extractor-frontend-pr0i.onrender.com
+
+1. front+backend deployed on render: https://marksheet-extractor-frontendstreamlit.onrender.com
 
 
 
@@ -94,25 +96,25 @@ A production‑ready AI system that extracts structured data from marksheets (im
 
 1.Backend
 
-&nbsp;	Python
+ 	Python
 
-&nbsp;	FastAPI
+ 	FastAPI
 
-&nbsp;	Groq API
+ 	Groq API
 
-&nbsp;	Poppler (PDF processing)
+ 	Poppler (PDF processing)
 
-&nbsp;	LLM
+ 	LLM
 
-&nbsp;	LLaMA (Groq hosted multimodal model)
+ 	LLaMA (Groq hosted multimodal model)
 
 2.Frontend
 
-&nbsp;	(upload + JSON viewer)
+ 	(upload + JSON viewer)
 
-&nbsp;	Deployment
+ 	Deployment
 
-&nbsp;	Render
+ 	Render
 
 ###### 🧩 Design Choices
 
@@ -132,13 +134,13 @@ A production‑ready AI system that extracts structured data from marksheets (im
 
 2\. Covers:
 
-&nbsp;	Valid image extraction
+ 	Valid image extraction
 
-&nbsp;	PDF parsing
+ 	PDF parsing
 
-&nbsp;	Error cases
+ 	Error cases
 
-&nbsp;	JSON schema validation
+ 	JSON schema validation
 
 ###### 🔒 Security \& Best Practices
 
@@ -164,19 +166,19 @@ A production‑ready AI system that extracts structured data from marksheets (im
 
 ###### 🚀 How to Run (High Level)
 
-&nbsp;	Set environment variables
+ 	Set environment variables
 
-&nbsp;	Start the FastAPI backend
+ 	Start the FastAPI backend
 
-&nbsp;	Run the Streamlit frontend
+ 	Run the Streamlit frontend
 
-&nbsp;	Upload a marksheet and view extracted JSON
+ 	Upload a marksheet and view extracted JSON
 
 ###### 📌 Notes
 
-&nbsp;	Credentials must be provided via environment variables
+ 	Credentials must be provided via environment variables
 
-&nbsp;	Supports concurrent requests
+ 	Supports concurrent requests
 
-&nbsp;	Designed for real‑world academic document variability
+ 	Designed for real‑world academic document variability
 
