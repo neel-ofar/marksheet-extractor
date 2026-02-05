@@ -1,6 +1,4 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException,Request
-from fastapi.responses import HTMLResponse
-from fastapi.templating import Jinja2Templates
 from PIL import Image
 import io
 from pdf2image import convert_from_bytes
@@ -14,7 +12,6 @@ from app.models import Extraction
 load_dotenv()
 
 app = FastAPI(title="Simple Marksheet Extractor")
-templates = Jinja2Templates(directory="templates")
 
 @app.get("/")
 def root():
