@@ -30,10 +30,6 @@ if not client.api_key:
 def health():
     return {"status": "healthy"}
 
-@app.get("/", response_class=HTMLResponse)
-def home(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
-
 
 @app.post("/extract")
 async def extract(file: UploadFile = File(...)):
