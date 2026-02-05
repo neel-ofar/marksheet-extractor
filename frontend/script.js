@@ -1,8 +1,6 @@
-// script.js ke sabse top pe yeh daal do
-const BACKEND_URL = "https://marksheet-extractor-ciik.onrender.com/docs#/default/extract_extract_post";  // ← YAHAN APNA REAL RENDER BACKEND URL DAAL DO
+// script.js
 
-
-
+const BACKEND_URL = "https://marksheet-extractor-ciik.onrender.com";  // ← YAHAN SIRF DOMAIN DAALO
 
 document.addEventListener('DOMContentLoaded', () => {
   const dropZone = document.getElementById('drop-zone');
@@ -57,6 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
         pdfPreview.src = e.target.result;
         pdfPreview.style.display = 'block';
         previewImg.style.display = 'none';
+      } else {
+        alert("Only image or PDF allowed");
+        extractBtn.disabled = true;
       }
     };
     reader.readAsDataURL(selectedFile);
@@ -75,13 +76,14 @@ document.addEventListener('DOMContentLoaded', () => {
     formData.append('file', selectedFile);
 
     try {
-      const response = await fetch(`${BACKEND_URL}`, {
+      const response = await fetch(`${BACKEND_URL}/extract`, {
         method: 'POST',
         body: formData
       });
 
       if (!response.ok) {
-        throw new Error(`Backend error: ${response.status}`);
+        const errorText = await response.text();
+        throw new Error(`Backend error: ${response.status} - ${errorText}`);
       }
 
       const data = await response.json();
@@ -103,6 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
           `;
           tbody.appendChild(tr);
         });
+      } else {
+        tbody.innerHTML = '<tr><td colspan="3">No subjects found</td></tr>';
       }
 
       document.getElementById('json-output').textContent = JSON.stringify(data, null, 2);
